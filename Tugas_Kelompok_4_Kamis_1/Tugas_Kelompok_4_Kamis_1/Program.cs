@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Calculate;
 
 namespace Tugas_Kelompok_4_Kamis_1
 {
