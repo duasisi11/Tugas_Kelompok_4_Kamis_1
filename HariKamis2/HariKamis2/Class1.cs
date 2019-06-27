@@ -16,21 +16,30 @@ namespace HariKamis2
             Console.Write("Input angka 2 :");
             int b = Convert.ToInt32(Console.ReadLine());
 
-            if (a % 2 == 1 && b % 2 == 0)
+            if (a == 0 && b == 0)
             {
-                Console.WriteLine(a + " angka ganjil dan " + b + " angka genap");
+                Console.WriteLine(a + " dan " + b + " bukan angka GANJIL maupun GENAP");
+            }
+            else if (a % 2 == 1 && b % 2 == 0)
+            {
+                Console.WriteLine(a + " adalah angka GANJIL");
+                Console.WriteLine(b + " adalah angka GENAP");
+
             }
             else if (a % 2 == 0 && b % 2 == 1)
             {
-                Console.WriteLine(a + " angka genap dan " + b + " angka ganjil");
+                Console.WriteLine(a + " adalah angka GENAP");
+                Console.WriteLine(b + " adalah angka GANJIL");
             }
             else if (a % 2 == 1 && b % 2 == 1)
             {
-                Console.WriteLine(a + " angka ganjil dan " + b + " angka ganjil");
+                Console.WriteLine(a + " adalah angka GANJIL");
+                Console.WriteLine(b + " adalah angka GANJIL");
             }
-            else
+            else if (a % 2 == 0 && b % 2 == 0)
             {
-                Console.WriteLine("Kedua angka genap");
+                Console.WriteLine(a + " adalah angka GENAP");
+                Console.WriteLine(b + " adalah angka GENAP");
             }
             Console.ReadKey();
         }
