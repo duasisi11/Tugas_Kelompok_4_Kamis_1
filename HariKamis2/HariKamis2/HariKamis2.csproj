@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>HariKamis2.While2</StartupObject>
+    <StartupObject>HariKamis2.Exercise2</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,9 +47,9 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Class2.cs" />
     <Compile Include="DoWhile.cs" />
-    <Compile Include="While2.cs" />
-    <Compile Include="While1.cs" />
     <Compile Include="Exercise2.cs" />
+    <Compile Include="While1.cs" />
+    <Compile Include="SwitchCase.cs" />
     <Compile Include="Exercise1.cs" />
     <Compile Include="Perulangan1.cs" />
     <Compile Include="Prima.cs" />
