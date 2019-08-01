@@ -145,6 +145,86 @@ namespace CRUD_pegawai_30_07_2019
             koneksi.Close();
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Tnip.Text = "";
+            Tnama.Text = "";
+            Talamat.Text = "";
+            Tkota.Text = "";
+            Ttempat.Text = "";
+            Dtgl.Value = DateTime.Now;
+            Cpend.Text = "";
+            Cjk.Text = "";
+            Cagm.Text = "";
+            Ckgp.Text = "";
+            Cstatus.Text = "";
+            Tjml.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlCommand perintahUbah = new SqlCommand();
+                koneksi.ConnectionString = GetConnectionStrings();
+                perintahUbah.Connection = koneksi;
+                perintahUbah.CommandType = CommandType.Text;
+                perintahUbah.CommandText = "update schkaryawan.pegawai set nama=@nama,alamat=@alamat,kota=@kota,tempat_lhr=@tempat_lhr,tgl_lhr=@tgl_lhr,pendidikan=@pendidikan,jns_kelamin=@jns_kelamin,agama=@agama,kode_gapok=@kode_gapok,status=@status,jml_anak=@jml_anak where nip=@nips";
+            
+                perintahUbah.Parameters.AddWithValue("@nama", Tnama.Text);
+                perintahUbah.Parameters.AddWithValue("@alamat", Talamat.Text);
+                perintahUbah.Parameters.AddWithValue("@kota", Tkota.Text);
+                perintahUbah.Parameters.AddWithValue("@tempat_lhr", Ttempat.Text);
+                perintahUbah.Parameters.AddWithValue("@tgl_lhr", Dtgl.Value.Date);
+                perintahUbah.Parameters.AddWithValue("@pendidikan", Cpend.Text);
+                perintahUbah.Parameters.AddWithValue("@jns_kelamin", Cjk.Text);
+                perintahUbah.Parameters.AddWithValue("@agama", Cagm.Text);
+                perintahUbah.Parameters.AddWithValue("@kode_gapok", Ckgp.Text);
+                perintahUbah.Parameters.AddWithValue("@status", Cstatus.Text);
+                perintahUbah.Parameters.AddWithValue("@jml_anak", Convert.ToInt32(Tjml.Text));
+
+                perintahUbah.Parameters.AddWithValue("@nips", Tnip.Text.Trim());
+
+                koneksi.Open();
+                int hasil = perintahUbah.ExecuteNonQuery();
+                MessageBox.Show("Data Berhasil Diubah");
+                koneksi.Close();
+            
+            }catch(Exception ec)
+            {
+                MessageBox.Show(ec.ToString());
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SqlCommand perintahHapus = new SqlCommand();
+            koneksi.ConnectionString = GetConnectionStrings();
+            perintahHapus.Connection = koneksi;
+            perintahHapus.CommandType = CommandType.Text;
+            perintahHapus.CommandText = "delete schkaryawan.pegawai where nip = @nip";
+
+            perintahHapus.Parameters.AddWithValue("@nip", Tnip.Text.Trim());
+
+            koneksi.Open();
+            int hasil = perintahHapus.ExecuteNonQuery();
+            MessageBox.Show("Data Berhasil Dihapus");
+            koneksi.Close();
+
+            Tnip.Text = "";
+            Tnama.Text = "";
+            Talamat.Text = "";
+            Tkota.Text = "";
+            Ttempat.Text = "";
+            Dtgl.Value = DateTime.Now;
+            Cpend.Text = "";
+            Cjk.Text = "";
+            Cagm.Text = "";
+            Ckgp.Text = "";
+            Cstatus.Text = "";
+            Tjml.Text = "";
+        }
+
 
     }
 }

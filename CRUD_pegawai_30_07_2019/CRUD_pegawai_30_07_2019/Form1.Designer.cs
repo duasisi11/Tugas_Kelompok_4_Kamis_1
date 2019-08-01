@@ -91,6 +91,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Ubah";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -101,6 +102,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Hapus";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -111,6 +113,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "Reset";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label1
             // 
