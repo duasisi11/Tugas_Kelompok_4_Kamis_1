@@ -21,6 +21,7 @@ namespace Data_Instansi
 
         SqlConnection koneksi;
         SqlDataReader dr;
+        DataTable dt;
 
         public Form1()
         {
@@ -146,7 +147,7 @@ namespace Data_Instansi
             {
                 koneksi = new SqlConnection(getKoneksi());
                 SqlCommand perintah;
-                perintah = new SqlCommand("select a.nip_nrp, a.nama_anggota, a.pangkat_gol, j.nama_jabatan, k.nama_kesatuan, d.nama_diklat, d.thn_lulus, k.nama_kesatuan from anggota a, jabatan j, kesatuan k, diklat d where a.id_jabatan = j.id_jabatan and a.id_kesatuan =  k.id_kesatuan and a.id_diklat = d.id_diklat", koneksi);
+                perintah = new SqlCommand("select a.nip_nrp, a.nama_anggota, a.pangkat_gol, j.nama_jabatan, d.nama_diklat, d.thn_lulus, k.nama_kesatuan from anggota a, jabatan j, kesatuan k, diklat d where a.id_jabatan = j.id_jabatan and a.id_kesatuan =  k.id_kesatuan and a.id_diklat = d.id_diklat", koneksi);
 
                 koneksi.Open();
                 dr = perintah.ExecuteReader();
@@ -159,14 +160,18 @@ namespace Data_Instansi
                     nama_kesatuan = dr["nama_kesatuan"].ToString();
                     nama_diklat = dr["nama_diklat"].ToString();
                     thn_lulus = dr["thn_lulus"].ToString();
-                    nama_kesatuan = dr["nama_kesatuan"].ToString();
+               
                     
 
 
                     listView3.Columns.Clear();
                     listView3.Columns.Add("id kesatuan", 80, HorizontalAlignment.Left);
-                    listView3.Columns.Add("nama kesatuan", 120, HorizontalAlignment.Left);
-                    listView3.Columns.Add("alamat", 100, HorizontalAlignment.Left);
+                    listView3.Columns.Add("Nama Anggota", 120, HorizontalAlignment.Left);
+                    listView3.Columns.Add("pangkat_gol", 100, HorizontalAlignment.Left);
+                    listView3.Columns.Add("nama_jabatan", 100, HorizontalAlignment.Left);
+                    listView3.Columns.Add("nama_kesatuan", 100, HorizontalAlignment.Left);
+                    listView3.Columns.Add("nama_diklat", 100, HorizontalAlignment.Left);
+                    listView3.Columns.Add("thn_lulus", 100, HorizontalAlignment.Left);
 
                     listView3.GridLines = true;
                     listView3.FullRowSelect = true;
@@ -180,7 +185,6 @@ namespace Data_Instansi
                     item3.SubItems.Add(dr["nama_kesatuan"].ToString());
                     item3.SubItems.Add(dr["nama_diklat"].ToString());
                     item3.SubItems.Add(dr["thn_lulus"].ToString());
-                    item3.SubItems.Add(dr["nama_kesatuan"].ToString());
 
                     listView3.Items.Add(item3);
                 }
@@ -190,6 +194,178 @@ namespace Data_Instansi
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.listView3.Items.Clear();
+        }
+
+
+        private void tampilAnggotaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.listView4.Items.Clear();
+
+                koneksi = new SqlConnection(getKoneksi());
+                SqlCommand perintah;
+                perintah = new SqlCommand("select * from kesatuan", koneksi);
+
+                koneksi.Open();
+                dr = perintah.ExecuteReader();
+                while (dr.Read())
+                {
+                    id_kesatuan = dr["id_kesatuan"].ToString();
+                    nama_kesatuan = dr["nama_kesatuan"].ToString();
+                    alamat = dr["alamat"].ToString();
+
+
+                    listView4.Columns.Clear();
+                    listView4.Columns.Add("id kesatuan", 80, HorizontalAlignment.Left);
+                    listView4.Columns.Add("nama kesatuan", 120, HorizontalAlignment.Left);
+                    listView4.Columns.Add("alamat", 100, HorizontalAlignment.Left);
+
+                    listView4.GridLines = true;
+                    listView4.FullRowSelect = true;
+                    listView4.View = View.Details;
+                    listView4.MultiSelect = false;
+
+                    ListViewItem item = new ListViewItem(dr["id_kesatuan"].ToString(), 0);
+                    item.SubItems.Add(dr["nama_kesatuan"].ToString());
+                    item.SubItems.Add(dr["alamat"].ToString());
+
+
+
+                    listView4.Items.Add(item);
+                }
+                koneksi.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void tampilKesatuanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.listView4.Items.Clear();
+
+                koneksi = new SqlConnection(getKoneksi());
+                SqlCommand perintah;
+                perintah = new SqlCommand("select a.nip_nrp, a.nama_anggota, a.pangkat_gol, j.nama_jabatan, d.nama_diklat, d.thn_lulus, k.nama_kesatuan from anggota a, jabatan j, kesatuan k, diklat d where a.id_jabatan = j.id_jabatan and a.id_kesatuan =  k.id_kesatuan and a.id_diklat = d.id_diklat", koneksi);
+
+                koneksi.Open();
+                dr = perintah.ExecuteReader();
+                while (dr.Read())
+                {
+                    nip_nrp = dr["nip_nrp"].ToString();
+                    nama_anggota = dr["nama_anggota"].ToString();
+                    pangkat_gol = dr["pangkat_gol"].ToString();
+                    nama_jabatan = dr["nama_jabatan"].ToString();
+                    nama_kesatuan = dr["nama_kesatuan"].ToString();
+                    nama_diklat = dr["nama_diklat"].ToString();
+                    thn_lulus = dr["thn_lulus"].ToString();
+
+
+
+
+                    listView4.Columns.Clear();
+                    listView4.Columns.Add("id kesatuan", 80, HorizontalAlignment.Left);
+                    listView4.Columns.Add("Nama Anggota", 120, HorizontalAlignment.Left);
+                    listView4.Columns.Add("pangkat_gol", 100, HorizontalAlignment.Left);
+                    listView4.Columns.Add("nama_jabatan", 100, HorizontalAlignment.Left);
+                    listView4.Columns.Add("nama_kesatuan", 100, HorizontalAlignment.Left);
+                    listView4.Columns.Add("nama_diklat", 100, HorizontalAlignment.Left);
+                    listView4.Columns.Add("thn_lulus", 100, HorizontalAlignment.Left);
+
+                    listView4.GridLines = true;
+                    listView4.FullRowSelect = true;
+                    listView4.View = View.Details;
+                    listView4.MultiSelect = false;
+
+                    ListViewItem item = new ListViewItem(dr["nip_nrp"].ToString(), 0);
+                    item.SubItems.Add(dr["nama_anggota"].ToString());
+                    item.SubItems.Add(dr["pangkat_gol"].ToString());
+                    item.SubItems.Add(dr["nama_jabatan"].ToString());
+                    item.SubItems.Add(dr["nama_kesatuan"].ToString());
+                    item.SubItems.Add(dr["nama_diklat"].ToString());
+                    item.SubItems.Add(dr["thn_lulus"].ToString());
+
+                    listView4.Items.Add(item);
+                }
+                koneksi.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+       
+
+        private void rekapDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.listView4.Items.Clear();
+
+                koneksi = new SqlConnection(getKoneksi());
+                SqlCommand perintah;
+                perintah = new SqlCommand("select a.nip_nrp, a.nama_anggota, a.pangkat_gol, j.nama_jabatan, d.nama_diklat, d.thn_lulus, k.nama_kesatuan from anggota a, jabatan j, kesatuan k, diklat d where a.id_jabatan = j.id_jabatan and a.id_kesatuan =  k.id_kesatuan and a.id_diklat = d.id_diklat", koneksi);
+
+                koneksi.Open();
+                dr = perintah.ExecuteReader();
+                while (dr.Read())
+                {
+                    nip_nrp = dr["nip_nrp"].ToString();
+                    nama_anggota = dr["nama_anggota"].ToString();
+                    pangkat_gol = dr["pangkat_gol"].ToString();
+                    nama_jabatan = dr["nama_jabatan"].ToString();
+                    nama_kesatuan = dr["nama_kesatuan"].ToString();
+                    nama_diklat = dr["nama_diklat"].ToString();
+                    thn_lulus = dr["thn_lulus"].ToString();
+
+
+
+
+                    listView4.Columns.Clear();
+                    listView4.Columns.Add("id kesatuan", 80, HorizontalAlignment.Left);
+                    listView4.Columns.Add("Nama Anggota", 120, HorizontalAlignment.Left);
+                    listView4.Columns.Add("pangkat_gol", 100, HorizontalAlignment.Left);
+                    listView4.Columns.Add("nama_jabatan", 100, HorizontalAlignment.Left);
+                    listView4.Columns.Add("nama_kesatuan", 100, HorizontalAlignment.Left);
+                    listView4.Columns.Add("nama_diklat", 100, HorizontalAlignment.Left);
+                    listView4.Columns.Add("thn_lulus", 100, HorizontalAlignment.Left);
+
+                    listView4.GridLines = true;
+                    listView4.FullRowSelect = true;
+                    listView4.View = View.Details;
+                    listView4.MultiSelect = false;
+
+                    ListViewItem item = new ListViewItem(dr["nip_nrp"].ToString(), 0);
+                    item.SubItems.Add(dr["nama_anggota"].ToString());
+                    item.SubItems.Add(dr["pangkat_gol"].ToString());
+                    item.SubItems.Add(dr["nama_jabatan"].ToString());
+                    item.SubItems.Add(dr["nama_kesatuan"].ToString());
+                    item.SubItems.Add(dr["nama_diklat"].ToString());
+                    item.SubItems.Add(dr["thn_lulus"].ToString());
+
+                    listView4.Items.Add(item);
+                }
+                koneksi.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.listView4.Items.Clear();
         }
 
 

@@ -69,10 +69,6 @@ namespace Tugas_01_08_2019
             bm.Position = bm.Count - 1;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dataGridView1 = null;
-        }
-
+      
     }
 }

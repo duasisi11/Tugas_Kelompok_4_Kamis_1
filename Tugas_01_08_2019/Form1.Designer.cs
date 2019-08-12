@@ -39,7 +39,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtJudul = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,22 +138,11 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Judul Buku";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(600, 137);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 35);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "CLEAR";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1059, 478);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtJudul);
             this.Controls.Add(this.dataGridView1);
@@ -188,7 +176,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtJudul;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
     }
 }
 
