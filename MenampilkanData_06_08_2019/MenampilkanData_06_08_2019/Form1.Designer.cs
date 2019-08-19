@@ -52,9 +52,13 @@
             this.db_libraryDataSet = new MenampilkanData_06_08_2019.db_libraryDataSet();
             this.tbl_bukuTableAdapter = new MenampilkanData_06_08_2019.db_libraryDataSetTableAdapters.tbl_bukuTableAdapter();
             this.btnReport = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.pilihTabelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.anggotaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblbukuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_libraryDataSet)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -229,6 +233,31 @@
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pilihTabelToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(867, 24);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // pilihTabelToolStripMenuItem
+            // 
+            this.pilihTabelToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.anggotaToolStripMenuItem});
+            this.pilihTabelToolStripMenuItem.Name = "pilihTabelToolStripMenuItem";
+            this.pilihTabelToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.pilihTabelToolStripMenuItem.Text = "Pilih Tabel";
+            // 
+            // anggotaToolStripMenuItem
+            // 
+            this.anggotaToolStripMenuItem.Name = "anggotaToolStripMenuItem";
+            this.anggotaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.anggotaToolStripMenuItem.Text = "Anggota";
+            this.anggotaToolStripMenuItem.Click += new System.EventHandler(this.anggotaToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,12 +273,16 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbJudul);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Menampilkan Data";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblbukuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_libraryDataSet)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,6 +313,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn norakDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idkategoriDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem pilihTabelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem anggotaToolStripMenuItem;
     }
 }
 
